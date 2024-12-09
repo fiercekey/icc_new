@@ -1,0 +1,86 @@
+div.fadeShow-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #FFF;
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 1; /* Fully visible */
+        z-index: 3;
+    }
+    43% {
+        opacity: 1; /* Hold visibility */
+    }
+    50% {
+        opacity: 0; /* Start fading out */
+        z-index: 2;
+    }
+    93% {
+        opacity: 0; /* Fully faded out */
+    }
+    100% {
+        opacity: 1; /* Next image fades in */
+        z-index: 3;
+    }
+}
+
+div.fadeShow-container div.image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    display: block;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: fadeInOut 19.5s infinite; /* Total duration of the cycle */
+    transition: opacity 1.5s ease-in-out;
+    z-index: 1;
+}
+
+/* Individual animations with offsets */
+div.fadeShow-container div.image:nth-child(1) {
+    animation-delay: -19.5s; /* Starts immediately */
+    opacity: 1; /* Fully visible for the first image initially */
+}
+
+div.fadeShow-container div.image:nth-child(2) {
+    animation-delay: 6.5s; /* Second image starts after 6.5 seconds */
+}
+
+div.fadeShow-container div.image:nth-child(3) {
+    animation-delay: 13s; /* Third image starts after 13 seconds */
+}
+
+div.fadeShow-container div.image img {
+    width: 100px;
+    display: none;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+body {
+    background-image: none;
+}
+
+.over-bg {
+    background-color: rgba(31, 31, 31, 0.4);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+main[role="slider-container"] {
+    position: relative;
+    z-index: 5;
+}
